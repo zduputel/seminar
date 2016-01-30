@@ -5,8 +5,7 @@ import datetime
 import dateutil.parser
 
 # Internals
-from googlecalendar import getevents
-from seminar import seminar
+from seminar import seminar,utils
 
 # Arguments
 from Arguments import *
@@ -18,7 +17,7 @@ Now       = Now.isoformat() + 'Z' #'Z' indicates UTC time
 inOneWeek = inOneWeek.isoformat() + 'Z'
 
 # Get events
-events = getevents(calendar, Now, inOneWeek)
+events = utils.googlecalendar.getevents(calendar, Now, inOneWeek)
 
 # Parse info
 if not events:
