@@ -92,6 +92,12 @@ class seminar(object):
         '''
         return self.date.strftime('%A %-d %B - %Hh%M')
 
+    def time(self):
+        '''
+        Returns time of seminar
+        '''
+        return self.date.strftime('%Hh%M')        
+        
     def day(self):
         '''
         Returns day of seminar
