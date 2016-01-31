@@ -104,7 +104,7 @@ class seminar(object):
         '''
         return self.date.strftime('%A %-d/%m')
     
-    def subject(self,prefix='',name=True,day=True,speaker=True):
+    def subject(self,prefix='',name=True,day=True,time=False,speaker=True,room=False):
         '''
         Set email subject
         Args:
@@ -125,10 +125,18 @@ class seminar(object):
         if day is True:     
             subject +=' - '+self.day()
 
+        # Append seminar time
+        if time is True:     
+            subject +=' - '+self.time()
+
         # Append seminar speaker
         if speaker is True and self.speaker is not None:
             subject += ' - '+self.speaker
-                
+
+        # Append seminar room
+        if room is True and self.room is not None:
+            subject += ' - '+self.room
+            
         # All done
         return subject
     

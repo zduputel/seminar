@@ -6,32 +6,36 @@ import dateutil.parser
 # Internals
 from seminar import meeting,utils
 
-# Arguments
+
+
+# Import input parameters
 from Arguments import *
 
-# Time stamps
+
+
+# Search events in calendar
+## Time stamps
 Now = datetime.datetime.utcnow()
-TimeSpan = 1
-TimeMax = Now + datetime.timedelta(days=TimeSpan)
-if Now.isoweekday() == AnnoucementDay:
-    TimeSpan = 7
+TimeSpan = 1                                       # Default time span is 1 day
+TimeMax = Now + datetime.timedelta(days=TimeSpan) 
+if Now.isoweekday() == AnnoucementDay:             # If we are on annoucement day
+    TimeSpan = 7                                   # time span is 7 days
     TimeMax = Now + datetime.timedelta(days=TimeSpan)
 
-# Get events
+## Get events
 Now_s = Now.isoformat() + 'Z' #'Z' indicates UTC time
 TimeMax_s = TimeMax.isoformat() + 'Z'
 events = utils.googlecalendar.getevents(calendar,Now_s,TimeMax_s)
-if not events and TimeSpan == 1:
-    TimeSpan = 2
+if not events and TimeSpan == 1:                   # If there is no events, we use a 
+    TimeSpan = 2                                   # span of two days and search again
     TimeMax = Now + datetime.timedelta(days=TimeSpan)
     TimeMax_s = TimeMax.isoformat() + 'Z'
     events = utils.googlecalendar.getevents(calendar,Now_s,TimeMax_s)
 
-# Parse info
 if not events:
     print('No upcoming events found.')
 
-# Parse events
+# Parse events and send emails
 for event in events:
 
     # When?
@@ -51,11 +55,23 @@ for event in events:
 
     # Seminar instantiation
     s = meeting(name='Sismo Club',date=date,program=program,room=room)
-    subject = s.subject(prefix=summary,name=False,speaker=False)
-    emailhead = ''
-    if TimeSpan == 1:
-        subject = 'RAPPEL - Sismo Club - '+s.time()+' - '+s.room
-        emailhead = '-- RAPPEL --\n\n'
+
+    # Define email subject and header
+    if TimeSpan == 7: # Weekly announcement
+        subject = s.subject(prefix=summary,name=False,speaker=False)
+        emailhead = ''
+    else:             # Reminder
+        if s.date.weekday() == Now.weekday(): # Sismoclub is today
+            prefix = 'RAPPEL: Sismo Club - Aujourd\'hui '+s.time()
+            subject = s.subject(prefix=prefix,name=False,speaker=False,
+                                day=False,time=False,room=True)            
+            emailhead = '-- RAPPEL --\n\n'        
+        else:                             # Sismoclub is tomorrow
+            prefix = 'RAPPEL: Sismo Club'
+            subject = s.subject(prefix=prefix,name=False,speaker=False,
+                                time=True,room=True)
+            emailhead = '-- RAPPEL --\n\n'
+        
     
     # Prepare email
     s.prepemail(subject=subject,head=emailhead,tail=emailtail)
