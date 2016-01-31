@@ -6,7 +6,7 @@ seminar is a simple time saving python module for automating seminar announcemen
 - python2 or python3
 - python modules: smtplib, email, datetime, dateutil
 - Optional: Google calendar API (see [Google Calendar Python Quickstart](https://developers.google.com/google-apps/calendar/quickstart/python))
-- Job scheduler (e.g., cron).
+- Optional: Job scheduler (e.g., cron).
 
 ## Some instructions
 The seminar directory must be placed in a path pointed by the PYTHONPATH environment variable.
