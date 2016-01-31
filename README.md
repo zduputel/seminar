@@ -4,7 +4,7 @@
 It will format and send announcement and reminder emails via smtp. 
 
 ## Dependencies
-- python2 or python3
+- python3
 - python modules: smtplib, email, datetime, dateutil
 - Optional: Google calendar API (see [Google Calendar Python Quickstart](https://developers.google.com/google-apps/calendar/quickstart/python))
 - Optional: Job scheduler (e.g., cron).
