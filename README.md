@@ -25,7 +25,7 @@ where
 - meeting is the class used to build group meeting annoucements
 - utils include tools to access google calendar events (see utils.googlecalendar.getevents)
 
-An example of driver script used to prepare and send email for a group meeting is included in examples/sismoclub
+An example of driver script used to prepare and send emails for sismo-club meetings is included in examples/sismoclub
 
 
 
