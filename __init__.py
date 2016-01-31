@@ -8,5 +8,5 @@ Written by Z. Duputel, January 2016
 from .seminar import seminar
 from .meeting import meeting
 
-import seminar.utils as utils
+import utils as utils
 
