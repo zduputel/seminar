@@ -1,6 +1,7 @@
 # seminar
 
-seminar is a simple time saving python module for automating seminar announcements.
+"seminar" is a simple time saving python module for automating seminar announcements.
+It will format and send announcement and reminder emails via smtp. 
 
 ## Dependencies
 - python2 or python3
