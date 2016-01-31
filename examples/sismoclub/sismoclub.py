@@ -26,7 +26,6 @@ if not events and TimeSpan == 1:
     TimeMax = Now + datetime.timedelta(days=TimeSpan)
     TimeMax_s = TimeMax.isoformat() + 'Z'
     events = utils.googlecalendar.getevents(calendar,Now_s,TimeMax_s)
-print(TimeSpan,events)
 
 # Parse info
 if not events:
