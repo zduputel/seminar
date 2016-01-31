@@ -4,7 +4,7 @@ import datetime
 import dateutil.parser
 
 # Internals
-from seminar import seminar,utils
+from seminar import meeting,utils
 
 # Arguments
 from Arguments import *
@@ -51,7 +51,7 @@ for event in events:
         room = default_room
 
     # Seminar instantiation
-    s = seminar(name='Sismo Club',date=date,program=program,room=room)
+    s = meeting(name='Sismo Club',date=date,program=program,room=room)
     subject = s.subject(prefix=summary,name=False,speaker=False)
     emailhead = ''
     if TimeSpan == 1:
@@ -59,13 +59,13 @@ for event in events:
         emailhead = '-- RAPPEL --\n\n'
     
     # Prepare email
-    s.meetingMSG(subject=subject,head=emailhead,tail=emailtail)
+    s.prepemail(subject=subject,head=emailhead,tail=emailtail)
     
     # Send email
     s.smtpconnect(smtp_serv,smtp_port,smtp_user,smtp_pass)
-    s.sendMSG(sender,toaddrs,ccaddrs)
+    s.sendemail(sender,toaddrs,ccaddrs)
 
     # Print email
-    s.printMSG()    
+    s.printemail()    
     
 
