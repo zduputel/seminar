@@ -10,5 +10,7 @@ This script is executed every morning using crontab:
 
 Input parameters are defined in "Arguments.py" (smtp server & port, email sender and recipients, calendar ID, ...). AnnoucementDay is the day of the weekly annoucement (5 is for friday).
 
+The smtp user and password must be specified in environment variables SMTP_USER and SMTP_PASS.
+
 To access google calendar API, follow the instructions detailed in the [Google Calendar Python Quickstart](https://developers.google.com/google-apps/calendar/quickstart/python).
 
