@@ -1,8 +1,12 @@
 # Sismo-club
 
+## Description
 The Sismo-Club is a weekly meeting organized by the Strasbourg seismology team since 2011. Main organisers are Zacharie Duputel, Olivier Lengline, and Christophe Zaroli.
 
-The driver script "sismoclub.py" is used to prepare Sismo Club announcements and is based on google calendar events. 
+## Some instructions
+"sismoclub.py" is the main driver script used to prepare Sismo Club announcements.
+
+This script is based on google calendar events. To access google calendar API, follow the instructions detailed in the [Google Calendar Python Quickstart](https://developers.google.com/google-apps/calendar/quickstart/python).
 
 This script is executed every morning using crontab:
 - On announcement day (friday), an email is prepared and send if a meeting is scheduled next week.
@@ -12,5 +16,5 @@ Input parameters are defined in "Arguments.py" (smtp server & port, email sender
 
 The smtp user and password must be specified in environment variables SMTP_USER and SMTP_PASS.
 
-To access google calendar API, follow the instructions detailed in the [Google Calendar Python Quickstart](https://developers.google.com/google-apps/calendar/quickstart/python).
+
 
