@@ -12,7 +12,7 @@ This script is executed every morning using crontab:
 - On announcement day (friday), an email is prepared and send if a meeting is scheduled next week.
 - Reminders are sent the day before and the day of the Sismo club.
 
-Input parameters are defined in "Arguments.py" (smtp server & port, email sender and recipients, calendar ID, ...). AnnoucementDay is the day of the weekly annoucement (5 is for friday).
+Input parameters are defined in "Arguments.py" (smtp server & port, email sender and recipients, calendar ID, signature ...). AnnoucementDay is the day of the weekly annoucement (5 is for friday).
 
 The smtp user and password must be specified in environment variables SMTP_USER and SMTP_PASS.
 

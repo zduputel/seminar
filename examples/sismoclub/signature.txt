@@ -1,0 +1,11 @@
+
+Café sismo - tous les vendredis à 10h00 - Cafétéria du 4ème
+http://eost.unistra.fr/recherche/ipgs/si/cafe-sismo
+
+-- Calendar Sismo-club --
+
+ICal format (mozzila thunderbird, google calendar, apple
+calendar,...), use the following URL:
+https://www.google.com/calendar/ical/egeeicevj7j1hg1vjshqd1deac%40group.calendar.google.com/public/basic.ics
+
+HTML format: https://www.google.com/calendar/embed?src=egeeicevj7j1hg1vjshqd1deac%40group.calendar.google.com&ctz=Europe/Paris

@@ -23,14 +23,7 @@ calendar = 'egeeicevj7j1hg1vjshqd1deac@group.calendar.google.com'
 default_room = 'Cafeteria du 4eme Etage'
 
 # Email tail
-emailtail = '''\n
-Christophe, Olivier et Zacharie
-\n
--- Subscribe to online calendar for sismo-club --
-
-For iCal users (mozzila thunderbird,google calendar,apple calendar,...), use the following URL:
-https://www.google.com/calendar/ical/egeeicevj7j1hg1vjshqd1deac%40group.calendar.google.com/public/basic.ics
-
-An HTML format is also available at:
-https://www.google.com/calendar/embed?src=egeeicevj7j1hg1vjshqd1deac%40group.calendar.google.com&ctz=Europe/Paris
-'''
+if os.path.exists('signature.txt'):
+	emailtail=open('signature.txt','r').read()
+else:
+	emailtail = '\n'

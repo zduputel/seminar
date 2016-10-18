@@ -72,7 +72,6 @@ for event in events:
                                 time=True,room=True)
             emailhead = '-- RAPPEL --\n\n'
         
-    
     # Prepare email
     s.prepemail(subject=subject,head=emailhead,tail=emailtail)
     
